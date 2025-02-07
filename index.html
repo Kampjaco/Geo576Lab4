@@ -32,7 +32,13 @@
     <!-- Loading the modules-->
     <script>
 
-        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search" ], (esriConfig, Map, MapView, Locate, Search) => {
+        require([
+            "esri/config", 
+            "esri/Map", 
+            "esri/views/MapView", 
+            "esri/widgets/Locate", 
+            "esri/widgets/Search",
+            "esri/layers/FeatureLayer"], (esriConfig, Map, MapView, Locate, Search, FeatureLayer) => {
 
             //API key
             esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurFOkIusOF1VpY7XrI8On8rT97tNiNbtgFmCtwOvhjfFhOLXkYP94N4hIcMdSHeUciUtB2IWQ_2YVJSdXzi_IWhmWdynaqt-VAFxx-m7QPXP1DZmxEPt6TyPJFH2W9SBFrsQHr3ANSUDx_agoBAH_kBJgf2rPafNi3Gymbl1Y9ob936ZFAViwcKE2ho6AMyipqnfeD2Q6xy6isdIWOpV36ZvShZri_FF0fkzhr7ztkfsZAT1_bPmqfOUP";
@@ -73,6 +79,15 @@
                 position: "top-left",
                 index: 2
             });
+
+
+            // Create featurelayer from feature service 
+            const layer = new FeatureLayer({ 
+                // URL to the service 
+                url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_1fadc067bd074bfa84a5b69f2644d779_results/FeatureServer"
+            });
+
+            map.add(layer);
 
     });
     </script>
